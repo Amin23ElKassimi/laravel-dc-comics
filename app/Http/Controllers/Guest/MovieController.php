@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Movie;
+
 
 class MovieController extends Controller
 {
@@ -12,8 +14,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
-        return view('guest.movies.index');
+        //Inizializzo una variabile che fa la get all sul Model Movie 
+        $movies = Movie::all();
+        return view('guest.movies.index', compact('movies'));
 
     }
 
