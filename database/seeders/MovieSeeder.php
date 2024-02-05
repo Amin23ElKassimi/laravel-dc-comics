@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Movie;
+use Faker\Generator as Faker;
 
 class MovieSeeder extends Seeder
 {
@@ -12,9 +14,6 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-
-
-        //
 
         $comics = [
             [
@@ -230,30 +229,19 @@ class MovieSeeder extends Seeder
             ],
         ];
 
-        foreach ($comics as $comicData) {
-            $comic = DB::table('comics')->insertGetId([
-                'title' => $comicData['title'],
-                'description' => $comicData['description'],
-                'thumb' => $comicData['thumb'],
-                'price' => $comicData['price'],
-                'series' => $comicData['series'],
-                'sale_date' => $comicData['sale_date'],
-                'type' => $comicData['type'],
-            ]);
-
-            // Inserisci artisti
-            foreach ($comicData['artists'] as $artist) {
-                $artistId = DB::table('artists')->insertGetId(['name' => $artist]);
-                DB::table('comic_artist')->insert(['comic_id' => $comic, 'artist_id' => $artistId]);
-            }
-
-            // Inserisci scrittori
-            foreach ($comicData['writers'] as $writer) {
-                $writerId = DB::table('writers')->insertGetId(['name' => $writer]);
-                DB::table('comic_writer')->insert(['comic_id' => $comic, 'writer_id' => $writerId]);
-            }
+        //
+        foreach($comics as $comicItem) {
+            $actualComic = new Movie();
+            $actualComic->title = $comicItem['title'];
+            $actualComic->description = $comicItem['description'];
+            $actualComic->thumb = $comicItem['thumb'];
+            $actualComic->price = $comicItem['price'];
+            $actualComic->series = $comicItem['series'];
+            $actualComic->sale_date = $comicItem['sale_date'];
+            $actualComic->type = $comicItem['type'];
+            $actualComic->save();
         }
-
+        
         
     }
 }
