@@ -42,6 +42,7 @@ class MovieController extends Controller
     public function show(string $id)
     {
         //
+        return view('guest.movies.index', compact('movies'));
     }
 
     /**
