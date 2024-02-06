@@ -45,16 +45,20 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $newMovie = $request->all();
+        //mi serve una var all'inizio per salvarti i dati della request che provengono dal Form
+        $newMovieData = $request->all();
+
+        //mi serve una var per istanziare un new Movie() da mandare al DB
         $newMovie = new Movie();
-        $newMovie->title = $newMovie['title'];
-        $newMovie->description = $newMovie['description'];
-        $newMovie->thumb = $newMovie['thumb'];
-        $newMovie->series = $newMovie['series'];
-        $newMovie->sale_date = $newMovie['sale_date'];
-        $newMovie->type = $newMovie['type'];
+        
+        $newMovie->title = $newMovieData['title'];
+        $newMovie->description = $newMovieData['description'];
+        $newMovie->thumb = $newMovieData['thumb'];
+        $newMovie->series = $newMovieData['series'];
+        $newMovie->sale_date = $newMovieData['sale_date'];
+        $newMovie->type = $newMovieData['type'];
         $newMovie->save();
+        dd($newMovie);
 
         return redirect()->route('guest.movies.show', $newMovie->id);
 
