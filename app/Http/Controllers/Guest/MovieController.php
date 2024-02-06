@@ -58,7 +58,6 @@ class MovieController extends Controller
         $newMovie->sale_date = $newMovieData['sale_date'];
         $newMovie->type = $newMovieData['type'];
         $newMovie->save();
-        dd($newMovie);
 
         return redirect()->route('guest.movies.show', $newMovie->id);
 

@@ -34,6 +34,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="size" class="form-label">Sale Date:</label>
+                        <input type="text" name="sale_date" id="sale_date" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
                         <label for="mills_no" class="form-label">Type:</label>
                         <input type="text" name="type" id="type" class="form-control">
                     </div>

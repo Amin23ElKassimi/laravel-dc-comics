@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('title',40);
             $table->text('description');
             $table->text('thumb');
-            $table->string('price', 40);
+            $table->string('price', 40)->default('0.00'); // Imposta '0.00' come valore predefinito per 'price'
             $table->text('series', 100);
             $table->text('sale_date');
             $table->string('type', 40);
