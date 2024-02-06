@@ -37,7 +37,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-
+        return view('guest.movies.create');
     }
 
     /**
@@ -46,6 +46,8 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         //
+        
+        $data = $request->all();
     }
 
 
