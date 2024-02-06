@@ -46,8 +46,19 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         //
-        
-        $data = $request->all();
+        $newMovie = $request->all();
+        $newMovie = new Movie();
+        $newMovie->title = $newMovie['title'];
+        $newMovie->description = $newMovie['description'];
+        $newMovie->thumb = $newMovie['thumb'];
+        $newMovie->series = $newMovie['series'];
+        $newMovie->sale_date = $newMovie['sale_date'];
+        $newMovie->type = $newMovie['type'];
+        $newMovie->save();
+
+        return redirect()->route('guest.movies.show', $newMovie->id);
+
+
     }
 
 
