@@ -23,7 +23,8 @@ Route::get('/', function () {
 
 // Route::resource('pastas', GuestPastaController::class);
 
-Route::get('/movies', [GuestMovieController::class, 'index'])->name('movies.index');
+Route::get('/movies', [GuestMovieController::class, 'index'])->name('guest.movies.index');
+Route::get('/movies/{movies}', [GuestMovieController::class, 'show'])->name('guest.movies.show');
 
 // Route::get('/movies', [GuestMovieController::class, 'show'])->name('guest.movies.show');
  
