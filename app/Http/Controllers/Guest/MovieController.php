@@ -16,20 +16,28 @@ class MovieController extends Controller
     {
         //Inizializzo una variabile che fa la get all sul Model Movie 
         $movies = Movie::all();
-        dd($movies);
+        // dd($movies);
         return view('guest.movies.index', compact('movies'));
 
+    }
+        /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+        //
+        $movie = Movie::findOrFail($id);
+        // dd($movie);
+        return view('guest.movies.show', compact('movie'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $id)
+    public function create()
     {
-        //
-        $movie = Movie::findOrFail($id);
-        dd($movie);
-        return view('guest.movies.show', compact('movie'));
+
     }
 
     /**
@@ -40,14 +48,7 @@ class MovieController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-        return view('guest.movies.index', compact('movies'));
-    }
+
 
     /**
      * Show the form for editing the specified resource.

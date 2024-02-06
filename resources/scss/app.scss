@@ -1,2 +1,35 @@
 // ? /node_modules/bootstrap/...
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+a{
+    text-decoration: none;
+}
+
+
+ul{
+    list-style: none;
+
+    li.active{
+        background-color: #b3e5fc;
+    }
+
+    a{
+        color: black;
+        font-weight: bold;
+    }
+}
+
+header{
+    @import "./partials/header";
+}
+
+main {
+
+    section#pastas{
+        background: url('../img/fondo-pag-speciali.jpg');
+    }
+}
+
+footer{
+    @import "./partials/footer";
+}
