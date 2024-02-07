@@ -69,17 +69,25 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id,)
     {
-        //
+        // dd($id);
+        // Ritorno la Edit
+        $movie = Movie::findOrFail($id);
+        return view('guest.movies.edit',compact('movie'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Movie $Datadb)
     {
-        //
+        //Assegnare i Dati presi con la Query i dati presi dal form
+        $dataFromForm = $request->all();
+
+        $Datadb->update($dataFromForm);
+
+        return redirect()->route('guest.movies.edit', $Datadb->id);
     }
 
     /**

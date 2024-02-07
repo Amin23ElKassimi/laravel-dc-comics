@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 //Richiamare i Copntroller Nelle Routes
-use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\Guest\MovieController as GuestMovieController;
 
 /*

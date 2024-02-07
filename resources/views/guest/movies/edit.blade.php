@@ -18,14 +18,17 @@
                 </div>
                 @endif
                 {{-- INviare alla store i dati tarmite metodo Post non dimenticarsi il @csrf --}}
-                <form action="{{ route('guest.movies.store') }}" method="POST">
+                <form action="{{ route('guest.movies.store', $movie->id)  }}" method="POST">
                     @csrf
+
+                    {{-- metodo custom --}}
+                    @method('PUT')
 
                     <div class="mb-3">
                         <label for="name" class="form-label">
                             Movie title:
                         </label>
-                        <input type="text" name="title" id="title" class="form-control">
+                        <input type="text" name="title" id="title" class="form-control" >
                     </div>
 
                     <div class="mb-3">
