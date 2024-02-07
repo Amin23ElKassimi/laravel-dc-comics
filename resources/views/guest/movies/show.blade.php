@@ -22,10 +22,17 @@
                             </p>
 
                             <p>
-                                Numero di mulini attivi: {{ $movie->sale_date }}
+                                Sale Date:: {{ $movie->sale_date }}
                             </p>
                             <div class="card-image">
                                 <img class="w-50" src="{{  $movie->thumb }}" alt="{{ $movie->title }}'s picture">
+                            </div>
+                            <div class="actions mb-3 pt-3">
+                                <a href="{{ route('guest.movies.edit', $movie->id) }}">
+                                    <button class="btn btn-primary">
+                                        Modifica questo il Film
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>

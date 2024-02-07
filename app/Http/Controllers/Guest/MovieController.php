@@ -80,14 +80,17 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movie $Datadb)
+    public function update(Request $request,Movie $movieDb, string $id)
     {
+        dd($request->all(), $id);
+
         //Assegnare i Dati presi con la Query i dati presi dal form
         $dataFromForm = $request->all();
 
-        $Datadb->update($dataFromForm);
+        $movieDb->update($dataFromForm);
 
-        return redirect()->route('guest.movies.edit', $Datadb->id);
+        // return redirect()->route('guest.movies.show', $movieDb->id);
+
     }
 
     /**
