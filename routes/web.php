@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 
-// Route::resource('pastas', GuestPastaController::class);
+// Route::resource('movies', GuestPastaController::class);
 
 
 
@@ -30,5 +30,8 @@ Route::post('/movies', [GuestMovieController::class, 'store'])->name('guest.movi
 // La Route che chiama il metodo Create va deifinita prima della Route che richiama il metodoo Show
 Route::get('/movies/create', [GuestMovieController::class, 'create'])->name('guest.movies.create');
 Route::get('/movies/{movies}', [GuestMovieController::class, 'show'])->name('guest.movies.show');
+
+Route::put('/movies/{movies}', [GuestMovieController::class, 'update'])->name('guest.movies.update');
+Route::get('/movies/{movies}/edit', [GuestMovieController::class, 'edit'])->name('guest.movies.edit');
 
  

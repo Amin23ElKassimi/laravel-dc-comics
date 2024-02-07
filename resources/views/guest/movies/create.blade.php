@@ -7,6 +7,16 @@
                 <h1 class="title mb-4 pt-3">
                     Aggiungi un nuovo mulino:
                 </h1>
+                {{-- Far Funzionare l'error --}}
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 {{-- INviare alla store i dati tarmite metodo Post non dimenticarsi il @csrf --}}
                 <form action="{{ route('guest.movies.store') }}" method="POST">
                     @csrf
